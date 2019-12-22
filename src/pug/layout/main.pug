@@ -1,0 +1,32 @@
+include ../bemto-master/bemto.pug
+
+include ../utils/mixins
+
+block variables
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    title &Gcy;&Bcy;&Ucy; &Kcy;&Kcy; &TScy;&iecy;&ncy;&tcy;&rcy; &Ocy;&lcy;&icy;&mcy;&pcy;&icy;&jcy;&scy;&kcy;&ocy;&jcy; &pcy;&ocy;&dcy;&gcy;&ocy;&tcy;&ocy;&vcy;&kcy;&icy; &pcy;&ocy; &fcy;&icy;&gcy;&ucy;&rcy;&ncy;&ocy;&mcy;&ucy; &kcy;&acy;&tcy;&acy;&ncy;&icy;&yucy; &ncy;&acy; &kcy;&ocy;&ncy;&softcy;&kcy;&acy;&khcy;
+    meta(name='keywords' content='')
+    meta(name='description' content='')
+    meta(name='author' content='http://icbcode.ru/')
+    meta(name='copyright' content='(c) Разработано интернет-компанией ООО "Бизнес Код"')
+    link(rel='shortcut icon' href='assets/icons/favicon.ico' type='image/x-icon')
+    link(rel='stylesheet' href='assets/css/app.css')
+    link(rel='stylesheet' href='js/fancybox/source/jquery.fancybox.css' type='text/css' media='screen')
+    script(type='text/javascript' src='js/jquery-1.9.0.min.js')
+    script(type='text/javascript' src='js/jquery.mousewheel.pack.js')
+    script(type='text/javascript' src='js/fancybox/source/jquery.fancybox.pack.js')
+    script(type='text/javascript' src='js/fancybox/source/helpers/jquery.fancybox-media.js')
+    script(type='text/javascript' src='js/slider.js')
+    script(type='text/javascript' src='js/youtube-prew.js')
+    script(src='http://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU' type='text/javascript')
+    script(type='text/javascript' src='js/scripts.js')
+    script(type='text/javascript' src='assets/js/vendors.js')
+    script(type='text/javascript' src='assets/js/app.js')
+  body(class=pageClass)
+    block content
+
+    block script

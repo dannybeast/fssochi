@@ -1,0 +1,202 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Webpack + Pug';
+  - var description = 'Description for Webpack + Pug';
+  - var pageClass = 'index-page';
+
+block content
+  .container.header
+    .wrapper.head
+      a.logo.left(href='/', title='Центр фигурного катания им. Т. Волосожар и М. Транькова')
+      +b.head-content
+        +e.top
+          +e.UL.logos
+            +e.LI
+              a(href="https://admkrai.krasnodar.ru/" target='_blank', rel='nofollow', title='Администрация Краснодарского края')
+                img(src="assets/images/min2.png", alt="")
+            +e.LI
+              a(href="http://www.kubansport.ru/" target='_blank', rel='nofollow', title='Министерство спорта Российской Федерации')
+                img(src="assets/images/min1.png", alt="")
+          +b.UL.social
+            +e.LI
+              a(href="https://www.instagram.com/fssochi/", target='_blank', title='Мы в инстаграмм')
+                img(src="assets/images/social/instagram.png", alt="")
+            +e.LI
+              a(href="#", target='_blank', title='Мы в инстаграмм')
+                img(src="assets/images/social/youtube.png", alt="")
+        +e.bottom
+          +b.search-module
+            label
+              input(type="text" placeholder="Поиск по сайту")
+          +b.UL.contacts-module
+            +e.LI
+              a(href="mailto:fssochi@mail.ru")
+                img(src="assets/images/icons/mail.png", alt="")
+                span fssochi@mail.ru
+            +e.LI
+              a(href="mailto:fssochi@mail.ru")
+                img(src="assets/images/icons/call.png", alt="")
+                span  8 (862) 243-30-58
+      .clear
+      ul.nav
+        li
+          a(href='/o-centre') О центре
+        li
+          a(href='/katok') Каток
+        li
+          a(href='/treneri') Тренеры
+        li
+          a(href='/sportsmeni') Спортсмены
+        li
+          a(href='/otdeleniya') Отделения
+        li
+          a(href='/dokumenti') Документы
+        li
+          a(href='/foto-video') Медиа
+        li
+          a(href='/novosti') Новости
+        li
+          a(href='/kontakti') Контакты
+        li
+          a(href='/sorevnovaniya') Соревнования
+    img.boxter(src='assets/images/shadow.png', style='width:100%;', alt='')
+  .clear
+  .all-content
+    .container.content
+
+      #slider-wrap.wrapper
+        #slider
+          .slide
+            .slide-text
+              h2 Загитова поздравила сестру с днем рождения и привела в восторг подарком
+              .slide-right
+                a(href="#" class="btn btn--line") Все новости
+                p.slide-date 19 декабря 2019 г.
+            img(src='assets/images/cms/1.jpg' alt='')
+          .slide
+            .slide-text
+              h2 C днем рождения и привела в восторг подарком
+              .slide-right
+                a(href="#" class="btn btn--line") Все новости
+                p.slide-date 10 декабря 2019 г.
+            img(src='assets/images/cms/1.jpg' alt='')
+
+      +b.SECTION.news-previews.section
+        .wrapper
+          +e.row
+            +b.A(href="#").news-preview
+              +e.icon
+                img(src="assets/images/icons/2.png", alt="")
+              +e.content
+                +e.P.date 19 ДЕК 2019
+                +e.P.title Кихира лидирует после короткой программы на чемпионате Японии
+            +b.A(href="#").news-preview
+              +e.icon
+                img(src="assets/images/icons/2.png", alt="")
+              +e.content
+                +e.P.date 19 ДЕК 2019
+                +e.P.title Елизавета Кожевникова: «Уход Загитовой выявил главный гештальт российского спорта»
+            +b.A(href="#").news-preview
+              +e.icon
+                img(src="assets/images/icons/2.png", alt="")
+              +e.content
+                +e.P.date 19 ДЕК 2019
+                +e.P.title Почему Алина Загитова не ушла после победы на ЧМ
+            +b.A(href="#").news-preview
+              +e.icon
+                img(src="assets/images/icons/2.png", alt="")
+              +e.content
+                +e.P.date 19 ДЕК 2019
+                +e.P.title Самоотвод Загитовой: все что нужно об этом знать
+            +b.A(href="#").news-preview
+              +e.icon
+                img(src="assets/images/icons/2.png", alt="")
+              +e.content
+                +e.P.date 19 ДЕК 2019
+                +e.P.title 11-летняя ученица Тутберидзе выиграла соревнования,
+            +b.A(href="#").news-preview
+              +e.icon
+                img(src="assets/images/icons/2.png", alt="")
+              +e.content
+                +e.P.date 19 ДЕК 2019
+                +e.P.title Ударят ли Instagram-разборки по результатам? Такая опасность реальна
+
+
+      +b.SECTION.calendar-section.section
+        .wrapper
+          +e.content
+            +e.H3.title Календарь мероприятий
+            +b.calendar-slider
+              div
+                +b.event-item
+                  +e.top
+                    +e.P.date 19 ДЕК 2019 19-00
+                    img(src="assets/images/icons/3.png", alt="")
+                  +e.A(href="#", class="title") 3 этап "Кубка России-Ростелеком" (С 29 октября по 2 ноября 2019 года)
+                  +e.desc Согласно Единому календарному плану межрегиональных, всероссийских и международных физкультурных мероприятий и спортивных мероприятий Минспорта России на 2019 года в г. Сочи 
+              div
+                +b.event-item
+                  +e.top
+                    +e.P.date 19 ДЕК 2019 19-00
+                    img(src="assets/images/icons/3-dark.png", alt="")
+                  +e.A(href="#", class="title") 3 этап "Кубка России-Ростелеком" (С 29 октября по 2 ноября 2019 года)
+                  +e.desc Согласно Единому календарному плану межрегиональных, всероссийских и международных физкультурных мероприятий и спортивных мероприятий Минспорта России на 2019 года в г. Сочи 
+          
+          
+          +e.calendar
+
+
+      +b.SECTION.news-section.section
+        .wrapper
+          .news-section__row
+            +b.A(href="#").news-item
+              +e.image
+                img(src="assets/images/news1.png", alt="")
+              +e.P.date 19 ДЕК 2019
+              +e.P.title "КРАЕВЫЕ СОРЕВНОВАНИЯ" И "ФИНАЛ КУБКА КРАСНОДАРСКОГО КРАЯ"
+            +b.A(href="#").news-item
+              +e.image
+                img(src="assets/images/news2.png", alt="")
+              +e.P.date 19 ДЕК 2019
+              +e.P.title "КРАЕВЫЕ СОРЕВНОВАНИЯ" И "ФИНАЛ КУБКА КРАСНОДАРСКОГО КРАЯ"
+            +b.A(href="#").news-item
+              +e.image
+                img(src="assets/images/news3.png", alt="")
+              +e.P.date 19 ДЕК 2019
+              +e.P.title "КРАЕВЫЕ СОРЕВНОВАНИЯ" И "ФИНАЛ КУБКА КРАСНОДАРСКОГО КРАЯ"
+
+  .container.bg-footer
+    .clear
+    .wrapper.banners
+      a.banner.banner-normal.left(href='/nabor-detej-s-4-h-let', target='_blank')
+        img.left(src='assets/images/cms/banners/1.jpg', alt='')
+      a.banner.banner-normal.left(href='/instagram', target='_blank')
+        img.left(src='assets/images/cms/banners/2.jpg', alt='')
+      a.banner.banner-normal.left(href='/facebook', target='_blank')
+        img.left(src='assets/images/cms/banners/3.jpg', alt='')
+      a.banner.banner-normal.left(href='/telegram', target='_blank')
+        img.left(src='assets/images/cms/banners/4.jpg', alt='')
+    .clear
+    .wrapper.footer
+      .footer-top
+        a.flame-media(href='http://flame-media.ru/', target='_blank', title='Агенство спортивного маркетинга')
+        p.copyright © 2015-2019, ГБУ КК «ЦОП по фигурному катанию на коньках», 354340, Сочи,  Олимпийский проспект 7, 4-й этаж, 
+        +b.UL.contacts-module
+          +e.LI
+            a(href="mailto:fssochi@mail.ru")
+              img(src="assets/images/icons/mail.png", alt="")
+              span fssochi@mail.ru
+          +e.LI
+            a(href="mailto:fssochi@mail.ru")
+              img(src="assets/images/icons/call.png", alt="")
+              span  8 (862) 243-30-58
+        +b.UL.social
+          +e.LI
+            a(href="https://www.instagram.com/fssochi/", target='_blank', title='Мы в инстаграмм')
+              img(src="assets/images/social/instagram.png", alt="")
+          +e.LI
+            a(href="https://vk.com/fssochi", target='_blank', title='Мы вконтакте')
+              img(src="assets/images/social/vk.png", alt="")
+      .footer-bottom
+        p ГБУ КК «ЦОП по фигурному катанию на коньках». Все права защищены. Пользователи сайта имеют право использовать размещенные на этом сайте материалы только в некоммерческих целях. При этом обязательным является сохранение всех авторских прав, а также установка гиперссылки на источник (fssochi.ru).
