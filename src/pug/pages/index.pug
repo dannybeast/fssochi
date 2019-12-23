@@ -160,6 +160,19 @@ block content
           
           
           +e.calendar
+            +b.calendar-filter
+              select.js-month-select
+              select.js-year-select
+              +e.arrows
+                +e.A(class="prev calendar-prev calendar-trigger")
+                  svg(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 320')
+                    path(d='M192 32.4L159.7 0 0 160l159.7 160 32.3-32.4L64.7 160z')
+                +e.A(class="next calendar-next calendar-trigger")
+                  svg(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 320')
+                    path(d='M192 32.4L159.7 0 0 160l159.7 160 32.3-32.4L64.7 160z')
+            #calendar
+              .calendar-days
+              .calendar-dates
 
 
       +b.SECTION.news-section.section

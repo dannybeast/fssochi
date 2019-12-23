@@ -178,6 +178,8 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
+    new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(en|ru|cz|eu)$/),
+
     new MiniCssExtractPlugin({
       // [hash]
       filename: `./${PATHS.assets}css/[name].css`
