@@ -1,0 +1,45 @@
+[{
+        "id": 33557,
+        "pagetitle": "Название события",
+        "url": "/afisha/grigorij-leps",
+        "introtext": "Короткое описание",
+        "dates": {
+            "all_dates": [
+                "2019-12-10"
+            ]
+        }
+    },
+    {
+        "id": 33563,
+        "pagetitle": "Локомотив - ЦСКА",
+        "url": "/afisha/lokomotiv-cska",
+        "introtext": "БК Локомотив БК Уникс Казань",
+        "dates": {
+            "all_dates": [
+                "2019-12-13"
+            ]
+        }
+    },
+    {
+        "id": 33561,
+        "pagetitle": "Ритас Вильнюс",
+        "url": "/afisha/ritas-viljnyus",
+        "introtext": "Баскет-холл",
+        "dates": {
+            "all_dates": [
+                "2019-11-19"
+            ]
+        }
+    },
+    {
+        "id": 33559,
+        "pagetitle": "Дискотека 80-90-х годов",
+        "url": "/afisha/diskoteka-80-90-h-godov",
+        "introtext": "Баскет-холл",
+        "dates": {
+            "all_dates": [
+                "2019-11-25"
+            ]
+        }
+    }
+]

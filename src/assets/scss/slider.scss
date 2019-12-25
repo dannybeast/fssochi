@@ -1,4 +1,6 @@
 @import "../../../node_modules/slick-slider/slick/slick";
+@import './calendar.scss';
+
 #slider {
   /* Оболочка слайдера */
   width: 100%;
@@ -31,11 +33,9 @@
   &:after {
     content: "";
     width: 100%;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 43, 131, 0) 0%,
-      rgba(0, 43, 131, 0.8463760504201681) 100%
-    );
+    background: linear-gradient(180deg,
+        rgba(0, 43, 131, 0) 0%,
+        rgba(0, 43, 131, 0.8463760504201681) 100%);
     position: absolute;
     top: 0;
     left: 0;

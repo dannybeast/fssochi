@@ -1044,9 +1044,11 @@ a:hover {
 .calendar-section {
   margin-bottom: 50px;
   position: relative;
-  *{
+
+  * {
     box-sizing: border-box;
   }
+
   .slick-arrow {
     position: absolute;
     width: 15px;
@@ -1060,20 +1062,25 @@ a:hover {
     transform-origin: top;
     z-index: 10;
     opacity: 0.5;
-    &:hover{
+
+    &:hover {
       opacity: 1;
     }
-    &:focus{
+
+    &:focus {
       outline: none;
     }
-    &.slick-prev{
+
+    &.slick-prev {
       left: -15px;
     }
-    &.slick-next{
+
+    &.slick-next {
       right: -15px;
       transform: rotate(-180deg) translateY(-50%);
     }
   }
+
   .wrapper {
     border-radius: 10px;
     background-color: #ffffff;
@@ -1096,7 +1103,7 @@ a:hover {
     background-color: #00b3ff;
     border-radius: 10px;
     width: calc(33.3333% - 30px);
-    padding: 40px;
+    padding: 30px;
     flex-shrink: 0;
   }
 }
@@ -1105,9 +1112,9 @@ a:hover {
   margin: 0 -25px;
 
   .slick-slide {
-    &:nth-child(2n){
-      .event-item__date{
-       background-color: #0063b9;
+    &:nth-child(2n) {
+      .event-item__date {
+        background-color: #0063b9;
       }
     }
   }
@@ -1115,6 +1122,7 @@ a:hover {
 
 .event-item {
   padding: 0 25px;
+
   &__top {
     display: flex;
     align-items: center;
@@ -1145,7 +1153,8 @@ a:hover {
     text-decoration: none;
     margin-bottom: 15px;
     font-weight: 500;
-    color: #004280;   
+    color: #004280;
+
     &:hover {
       color: #004280;
       text-decoration: underline;
