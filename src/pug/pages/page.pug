@@ -1,0 +1,202 @@
+extends ../layout/main
+
+block variables
+    - var title = 'Webpack + Pug';
+    - var description = 'Description for Webpack + Pug';
+    - var pageClass = 'index-page';
+
+block content
+    .container.header
+        .wrapper.head
+            a.logo.left(href='/', title='Центр фигурного катания им. Т. Волосожар и М. Транькова')
+            +b.head-content
+                +e.top
+                    +e.UL.logos
+                        +e.LI
+                            a(href="https://admkrai.krasnodar.ru/" target='_blank', rel='nofollow', title='Администрация Краснодарского края')
+                                img(src="assets/images/min2.png", alt="")
+                        +e.LI
+                            a(href="http://www.kubansport.ru/" target='_blank', rel='nofollow', title='Министерство спорта Российской Федерации')
+                                img(src="assets/images/min1.png", alt="")
+                    +b.UL.social
+                        +e.LI
+                            a(href="https://www.instagram.com/fssochi/", target='_blank', title='Мы в инстаграмм')
+                                img(src="assets/images/social/instagram.png", alt="")
+                        +e.LI
+                            a(href="#", target='_blank', title='Мы в инстаграмм')
+                                img(src="assets/images/social/youtube.png", alt="")
+                +e.bottom
+                    +b.search-module
+                        label
+                            input(type="text" placeholder="Поиск по сайту")
+                    +b.UL.contacts-module
+                        +e.LI
+                            a(href="mailto:fssochi@mail.ru")
+                                img(src="assets/images/icons/mail.png", alt="")
+                                span fssochi@mail.ru
+                        +e.LI
+                            a(href="mailto:fssochi@mail.ru")
+                                img(src="assets/images/icons/call.png", alt="")
+                                span  8 (862) 243-30-58
+            .clear
+            ul.nav
+                li
+                    a(href='/o-centre') О центре
+                li
+                    a(href='/katok') Каток
+                li
+                    a(href='/treneri') Тренеры
+                li
+                    a(href='/sportsmeni') Спортсмены
+                li
+                    a(href='/otdeleniya') Отделения
+                li
+                    a(href='/dokumenti') Документы
+                li
+                    a(href='/foto-video') Медиа
+                li
+                    a(href='/novosti') Новости
+                li
+                    a(href='/kontakti') Контакты
+                li
+                    a(href='/sorevnovaniya') Соревнования
+        img.boxter(src='assets/images/shadow.png', style='width:100%;', alt='')
+    .clear
+    .page.container.all-content
+        .wrapper
+            .breadcrumbs
+                a(href='/')
+                    span Главная
+                span.pre  / 
+                span Календарь мероприятий
+            .clear
+            .col-1.left
+                ul.main-menu
+                    li
+                        a(href='/o-centre') О центре
+                        ul.menu
+                            li
+                                a(href='/o-centre/rukovodstvo') Руководство
+                    li
+                        a(href='/katok') Каток
+                    li.active
+                        a(href='/treneri') Тренеры
+                    li
+                        a(href='/sportsmeni') Спортсмены
+                    li
+                        a(href='/otdeleniya') Отделения
+                        ul.menu
+                            li
+                                a(href='/otdeleniya/odinochnoe-katanie') Одиночное катание
+                            li
+                                a(href='/otdeleniya/tanci-na-ljdu') Танцы на льду
+                            li
+                                a(href='/otdeleniya/parnoe-katanie') Парное катание
+                            li
+                                a(href='/otdeleniya/sinhronnoe-katanie') Синхронное катание
+                    li
+                        a(href='/dokumenti') Документы
+                    li
+                        a(href='/foto-video') Медиа
+                    li
+                        a(href='/novosti') Новости
+                    li
+                        a(href='/kontakti') Контакты
+                    li
+                        a(href='/sorevnovaniya') Соревнования
+            .col-2.right
+                h1 Календарь мероприятий
+                hr
+
+                // Filter module
+                +b.filter-module.js-custom-tabs
+                    +e.nav
+                        +e.LABEL
+                            input(type="radio" name="filter-events" checked data-tab="past-events").active
+                            +e.SPAN Прошедшие мероприятия
+                        +e.LABEL
+                            input(type="radio" name="filter-events" data-tab="future-events")
+                            +e.SPAN Будущие мероприятия
+                
+                    // Past
+                    +e.content#past-events.custom-tabs-content
+                        +e.FORM.row
+                            label Выберите период
+                            +b.field(class="field--date")
+                                input(type="text" placeholder="с").js-datepicker
+                            +b.field(class="field--date")
+                                input(type="text" placeholder="по").js-datepicker
+                            +b.BUTTON.btn Показать
+
+                    // Future
+                    +e.content#future-events.custom-tabs-content
+                        +e.FORM.row
+                            label Выберите период
+                            +b.field(class="field--date")
+                                input(type="text" placeholder="с").js-datepicker
+                            +b.field(class="field--date")
+                                input(type="text" placeholder="по").js-datepicker
+                            +b.BUTTON.btn Показать
+
+                .news
+                    mixin item()
+                        +b.news-module
+                            +e.content
+                                +e.SPAN.date С 22/02/2020 по 22/02/2020
+                                +e.A(href="#" class="title") Итоговый протокол с Командного первенства Краснодарского края "Зимняя сказка"
+                                +e.P.desc Итоговый протокол с Командного первенства Краснодарского края "Зимняя сказка". Итоговый протокол командные.pdf.
+                                +e.A(href="#").btn Подать заявку
+                            +e.A(href="#", class="img")
+                                img.right(src='http://fssochi.ru/content/cms/files/100929.png?w=210&h=150&mode=crop' alt)
+                +item()
+                +item()
+                +item()
+                +item()
+                +item()
+                +item()
+                +item()
+                +item()
+
+                .clear
+                .pagination
+                    p.numbers
+                        a.active(href='/treneri?page=1') 1
+                        a(href='/treneri?page=2') 2
+                        a(href='/treneri?page=3') 3
+                    a.next(href='/treneri?page=2') Следующая
+                .clear
+
+    .container.bg-footer
+        .clear
+        .wrapper.banners
+            a.banner.banner-normal.left(href='/nabor-detej-s-4-h-let', target='_blank')
+                img.left(src='assets/images/cms/banners/1.jpg', alt='')
+            a.banner.banner-normal.left(href='/instagram', target='_blank')
+                img.left(src='assets/images/cms/banners/2.jpg', alt='')
+            a.banner.banner-normal.left(href='/facebook', target='_blank')
+                img.left(src='assets/images/cms/banners/3.jpg', alt='')
+            a.banner.banner-normal.left(href='/telegram', target='_blank')
+                img.left(src='assets/images/cms/banners/4.jpg', alt='')
+        .clear
+        .wrapper.footer
+            .footer-top
+                a.flame-media(href='http://flame-media.ru/', target='_blank', title='Агенство спортивного маркетинга')
+                p.copyright © 2015-2019, ГБУ КК «ЦОП по фигурному катанию на коньках», 354340, Сочи,  Олимпийский проспект 7, 4-й этаж, 
+                +b.UL.contacts-module
+                    +e.LI
+                        a(href="mailto:fssochi@mail.ru")
+                            img(src="assets/images/icons/mail.png", alt="")
+                            span fssochi@mail.ru
+                    +e.LI
+                        a(href="mailto:fssochi@mail.ru")
+                            img(src="assets/images/icons/call.png", alt="")
+                            span  8 (862) 243-30-58
+                +b.UL.social
+                    +e.LI
+                        a(href="https://www.instagram.com/fssochi/", target='_blank', title='Мы в инстаграмм')
+                            img(src="assets/images/social/instagram.png", alt="")
+                    +e.LI
+                        a(href="https://vk.com/fssochi", target='_blank', title='Мы вконтакте')
+                            img(src="assets/images/social/vk.png", alt="")
+            .footer-bottom
+                p ГБУ КК «ЦОП по фигурному катанию на коньках». Все права защищены. Пользователи сайта имеют право использовать размещенные на этом сайте материалы только в некоммерческих целях. При этом обязательным является сохранение всех авторских прав, а также установка гиперссылки на источник (fssochi.ru).

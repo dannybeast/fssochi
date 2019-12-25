@@ -1,6 +1,7 @@
 @import './reset';
 @import './slider';
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic-ext);
+@import './datepicker.scss';
 
 @font-face {
   font-family: "FlowRegular";
@@ -576,7 +577,6 @@ a:hover {
 
 .pagination {
   position: relative;
-  border-top: solid 1px #0063B9;
   padding: 30px 0 10px 0;
   margin: 20px 0 0 0;
 }
@@ -1149,6 +1149,184 @@ a:hover {
     &:hover {
       color: #004280;
       text-decoration: underline;
+    }
+  }
+}
+
+
+.news-module {
+  margin: 0 0 30px 0;
+  width: 690px;
+  overflow: hidden;
+  background: url(../images/border-bottom-news.png) 0 100% repeat-x;
+  border-top: 0;
+  padding: 0 0 30px 0;
+  display: flex;
+  justify-content: space-between;
+
+  &__btn{
+    height: 30px;
+    padding: 0 15px;
+    line-height: 30px;
+    border-radius: 10px;
+    border: 2px solid #64b1fc;
+    color: #3863b5;
+    font-family: "PT Sans";
+    font-size: 15px;
+    display: inline-block;
+    vertical-align: top;
+    text-decoration: none;
+    font-weight: bold;
+    &:hover{
+      color:#fff;
+      border-color: #3863b5;
+      background: #3863b5;
+    }
+  }
+  &__img{
+    max-width: 210px;
+    img{
+      display: block;
+      max-width: 100%;
+    }
+  }
+  &__content{
+    max-width: 430px;
+  }
+  &__date{
+    color: #55b1ff;
+    font-size: 13px;
+    margin-bottom: 5px;
+    display: block;
+  }
+  &__title{
+   color: #285081;
+   font-size: 20px;
+   line-height: 26px;
+   text-decoration: none;
+   border-bottom: 1px solid;
+  }
+  &__desc{
+    display: block;
+    margin-top: 15px;
+    color: #020202;
+    font-size: 14px;
+  }
+}
+
+
+//
+
+.field{
+  position: relative;  
+  *{
+    box-sizing: border-box;
+  }
+  input{
+    height: 35px;
+    background: #fff;
+    border-radius:5px;
+    padding-left: 15px;
+    transition: all .2s ease;
+    border:solid 1px transparent;
+    &:hover{
+      border-color: #3863b5;
+    }
+    &:focus{
+      outline: none;
+    }
+    color:#000;
+    &::placeholder{
+      color: rgba(#000, 0.5);
+    }
+  }
+  &--date{
+    input{
+      padding-right: 60px;
+    }
+    &:after{
+      content: '';
+      width: 20px;
+      height: 20px;
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      background: url('../images/icons/calendar.png') center no-repeat;
+      background-size: contain;
+      pointer-events: none;
+      cursor: pointer;
+    }
+  }
+}
+
+$filter-bg: #cfe8f9;
+.filter-module{
+  margin-bottom:40px;
+  font-size: 16px;
+.btn{
+  background: #0063b9;
+  color:#fff;
+  border:none;
+  padding: 0 15px;
+  line-height: 35px;
+  height: 35px;
+  border-radius:6px;
+  &:hover{
+    background: #429be9;
+  }
+}
+  &:last-child{
+    margin-bottom: 0;
+  }
+  &__content{
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius:6px;
+    background-color: $filter-bg;
+    padding: 20px 30px;
+  }
+  &__nav{
+    display: flex;
+    label{
+      span{
+        color: #429be9; 
+        display: block;
+        padding: 15px 25px;
+        font-family: "PT Sans";
+        font-size: 18px;
+        font-weight: 700;
+        border-top-left-radius:6px;
+        border-top-right-radius:6px;
+      }
+      input{
+        display: none;
+        &:checked+span{
+          background: $filter-bg;
+            color: #2060ae;
+          
+        }
+      }
+     
+    }
+  }
+  .field{
+    input{
+      width: 100%;
+    }
+  }
+  &__row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: -15px;
+    margin-right: -15px;
+    label{
+      white-space: nowrap;
+    }
+    &>*{ 
+      flex-grow: 1;
+      margin: 0 10px;
     }
   }
 }

@@ -61,4 +61,34 @@ $(document).ready(function () {
         });
     }
 
+
+
+    // choose packet modal tabs
+  $('.js-custom-tabs').each(function (i) {
+
+    // choose packet modal tabs
+    function customTabsActiveShow(cur) {
+      cur.find('.custom-tabs-content').hide();
+      var curTab = cur.find('*[data-tab].active');
+      var curTabId = curTab.data('tab');
+      cur.find('.custom-tabs-content#' + curTabId + '').show();
+    }
+    customTabsActiveShow($(this));
+
+    $(this)
+      .find('*[data-tab]')
+      .click(function () {
+        let cur = $(this).parents('.js-custom-tabs');
+        cur.find('*[data-tab]').removeClass('active');
+        $(this).addClass('active');
+        customTabsActiveShow(cur);
+      });
+    //---
+  });
+
+  $('.js-datepicker').datepicker({
+
+  });
+
+
 });
