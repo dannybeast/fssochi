@@ -2,6 +2,7 @@
 @import './slider';
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic-ext);
 @import './datepicker.scss';
+@import './modals.scss';
 
 @font-face {
   font-family: "FlowRegular";
@@ -1173,11 +1174,11 @@ a:hover {
   display: flex;
   justify-content: space-between;
 
-  &__btn{
+  &__btn {
     height: 30px;
     padding: 0 15px;
     line-height: 30px;
-    border-radius: 10px;
+    border-radius: 8px;
     border: 2px solid #64b1fc;
     color: #3863b5;
     font-family: "PT Sans";
@@ -1186,36 +1187,44 @@ a:hover {
     vertical-align: top;
     text-decoration: none;
     font-weight: bold;
-    &:hover{
-      color:#fff;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff;
       border-color: #3863b5;
       background: #3863b5;
     }
   }
-  &__img{
+
+  &__img {
     max-width: 210px;
-    img{
+
+    img {
       display: block;
       max-width: 100%;
     }
   }
-  &__content{
+
+  &__content {
     max-width: 430px;
   }
-  &__date{
+
+  &__date {
     color: #55b1ff;
     font-size: 13px;
     margin-bottom: 5px;
     display: block;
   }
-  &__title{
-   color: #285081;
-   font-size: 20px;
-   line-height: 26px;
-   text-decoration: none;
-   border-bottom: 1px solid;
+
+  &__title {
+    color: #285081;
+    font-size: 20px;
+    line-height: 26px;
+    text-decoration: none;
+    border-bottom: 1px solid;
   }
-  &__desc{
+
+  &__desc {
     display: block;
     margin-top: 15px;
     color: #020202;
@@ -1226,34 +1235,42 @@ a:hover {
 
 //
 
-.field{
-  position: relative;  
-  *{
+.field {
+  position: relative;
+
+  * {
     box-sizing: border-box;
   }
-  input{
+
+  input {
     height: 35px;
     background: #fff;
-    border-radius:5px;
+    border-radius: 5px;
     padding-left: 15px;
     transition: all .2s ease;
-    border:solid 1px transparent;
-    &:hover{
+    border: solid 1px transparent;
+
+    &:hover {
       border-color: #3863b5;
     }
-    &:focus{
+
+    &:focus {
       outline: none;
     }
+
     color:#000;
-    &::placeholder{
+
+    &::placeholder {
       color: rgba(#000, 0.5);
     }
   }
-  &--date{
-    input{
+
+  &--date {
+    input {
       padding-right: 60px;
     }
-    &:after{
+
+    &:after {
       content: '';
       width: 20px;
       height: 20px;
@@ -1271,69 +1288,82 @@ a:hover {
 }
 
 $filter-bg: #cfe8f9;
-.filter-module{
-  margin-bottom:40px;
+
+.filter-module {
+  margin-bottom: 40px;
   font-size: 16px;
-.btn{
-  background: #0063b9;
-  color:#fff;
-  border:none;
-  padding: 0 15px;
-  line-height: 35px;
-  height: 35px;
-  border-radius:6px;
-  &:hover{
-    background: #429be9;
+
+  .btn {
+    background: #0063b9;
+    color: #fff;
+    border: none;
+    padding: 0 15px;
+    line-height: 35px;
+    height: 35px;
+    border-radius: 6px;
+
+    &:hover {
+      background: #429be9;
+    }
   }
-}
-  &:last-child{
+
+  &:last-child {
     margin-bottom: 0;
   }
-  &__content{
+
+  &__content {
     border-bottom-left-radius: 6px;
-    border-bottom-right-radius:6px;
+    border-bottom-right-radius: 6px;
     background-color: $filter-bg;
     padding: 20px 30px;
   }
-  &__nav{
+
+  &__nav {
     display: flex;
-    label{
-      span{
-        color: #429be9; 
+
+    label {
+      span {
+        color: #429be9;
         display: block;
         padding: 15px 25px;
         font-family: "PT Sans";
         font-size: 18px;
         font-weight: 700;
-        border-top-left-radius:6px;
-        border-top-right-radius:6px;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
       }
-      input{
+
+      input {
         display: none;
-        &:checked+span{
+
+        &:checked+span {
           background: $filter-bg;
-            color: #2060ae;
-          
+          color: #2060ae;
+
         }
       }
-     
+
     }
   }
-  .field{
-    input{
+
+  .field {
+    input {
       width: 100%;
     }
   }
-  &__row{
+
+  &__row {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-left: -15px;
     margin-right: -15px;
-    label{
+
+    label {
       white-space: nowrap;
     }
-    &>*{ 
+
+    &>* {
       flex-grow: 1;
       margin: 0 10px;
     }

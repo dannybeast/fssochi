@@ -41,12 +41,16 @@ $(document).ready(function () {
 
         $(this).parent().parent().find('li.active').each(function () {
             if ($(this).children('ul.menu').length > 0) {
-                $(this).children('ul.menu').slideUp(200, function () { $(this).parent().removeClass('active'); });
+                $(this).children('ul.menu').slideUp(200, function () {
+                    $(this).parent().removeClass('active');
+                });
             }
         });
 
         if (!$(this).parent().hasClass('active')) {
-            $(this).parent().children('.menu').slideDown(200, function () { $(this).parent().addClass('active'); });
+            $(this).parent().children('.menu').slideDown(200, function () {
+                $(this).parent().addClass('active');
+            });
         }
         return false;
     });
@@ -57,38 +61,68 @@ $(document).ready(function () {
             var $get = 2;
             var $def = '';
             var $y_prew = youTube($y_link, $get, $def);
-            $(this).find("img.youtube-prew").attr({ src: $y_prew });
+            $(this).find("img.youtube-prew").attr({
+                src: $y_prew
+            });
         });
     }
 
 
 
     // choose packet modal tabs
-  $('.js-custom-tabs').each(function (i) {
+    $('.js-custom-tabs').each(function (i) {
 
-    // choose packet modal tabs
-    function customTabsActiveShow(cur) {
-      cur.find('.custom-tabs-content').hide();
-      var curTab = cur.find('*[data-tab].active');
-      var curTabId = curTab.data('tab');
-      cur.find('.custom-tabs-content#' + curTabId + '').show();
+        // choose packet modal tabs
+        function customTabsActiveShow(cur) {
+            cur.find('.custom-tabs-content').hide();
+            var curTab = cur.find('*[data-tab].active');
+            var curTabId = curTab.data('tab');
+            cur.find('.custom-tabs-content#' + curTabId + '').show();
+        }
+        customTabsActiveShow($(this));
+
+        $(this)
+            .find('*[data-tab]')
+            .click(function () {
+                let cur = $(this).parents('.js-custom-tabs');
+                cur.find('*[data-tab]').removeClass('active');
+                $(this).addClass('active');
+                customTabsActiveShow(cur);
+            });
+        //---
+    });
+
+    $('.js-datepicker').datepicker({});
+
+    // modals
+    // js modal
+
+    $('body').delegate('.js-custom-modal', 'click', function (e) {
+        e.preventDefault();
+        openModal($(this).attr('data-modal-id'));
+    });
+
+    $('body').delegate('.js-hide-modal', 'click', function (e) {
+        e.preventDefault();
+        hideModals();
+    });
+
+
+    function openModal(id) {
+        $('.modal').removeClass('active');
+        $('div.modal[id="' + id + '"]').addClass('active');
     }
-    customTabsActiveShow($(this));
 
-    $(this)
-      .find('*[data-tab]')
-      .click(function () {
-        let cur = $(this).parents('.js-custom-tabs');
-        cur.find('*[data-tab]').removeClass('active');
-        $(this).addClass('active');
-        customTabsActiveShow(cur);
-      });
-    //---
-  });
+    function hideModals() {
+        $('.modal').removeClass('active');
+    }
 
-  $('.js-datepicker').datepicker({
+    $(document).ready(function () {
+        setTimeout(() => {
+            $('.modal').addClass('init');
+        }, 500);
+    });
 
-  });
-
+    //-
 
 });

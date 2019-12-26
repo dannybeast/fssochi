@@ -117,7 +117,7 @@ block content
                         +e.LABEL
                             input(type="radio" name="filter-events" data-tab="future-events")
                             +e.SPAN Будущие мероприятия
-                
+
                     // Past
                     +e.content#past-events.custom-tabs-content
                         +e.FORM.row
@@ -145,7 +145,7 @@ block content
                                 +e.SPAN.date С 22/02/2020 по 22/02/2020
                                 +e.A(href="#" class="title") Итоговый протокол с Командного первенства Краснодарского края "Зимняя сказка"
                                 +e.P.desc Итоговый протокол с Командного первенства Краснодарского края "Зимняя сказка". Итоговый протокол командные.pdf.
-                                +e.A(href="#").btn Подать заявку
+                                +e.A.btn(class=" js-custom-modal", data-modal-id="apply") Подать заявку
                             +e.A(href="#", class="img")
                                 img.right(src='http://fssochi.ru/content/cms/files/100929.png?w=210&h=150&mode=crop' alt)
                 +item()
@@ -200,3 +200,35 @@ block content
                             img(src="assets/images/social/vk.png", alt="")
             .footer-bottom
                 p ГБУ КК «ЦОП по фигурному катанию на коньках». Все права защищены. Пользователи сайта имеют право использовать размещенные на этом сайте материалы только в некоммерческих целях. При этом обязательным является сохранение всех авторских прав, а также установка гиперссылки на источник (fssochi.ru).
+
+    // Modals
+    +b.modal#apply
+        +b.modal-block
+            +e.BUTTON.close.js-hide-modal
+            +e.H3.title Подать заявку
+            +e.content
+                form(action="" method="post")
+                    +b.field(class="field--row field--error")
+                        label ФИО
+                        input(type="text" name="")
+
+                    +b.field(class="field--row")
+                        label Дата рождения
+                        input(type="text" name="" class="js-date-mask")
+
+                    +b.field(class="field--row")
+                        label Учреждение
+                        input(type="text" name="")
+
+                    +b.field(class="field--row")
+                        label Телефон
+                        input(type="text" name="" class="js-phone-mask")
+                    +b.field(class="field--row")
+                        label E-mail
+                        input(type="text" name="")
+                    +b.field(class="field--row")
+                        label Дополнительно
+                        textarea(name="text")
+        
+                    +b.field(class="field--not-label")
+                        +b.BUTTON.btn Отправить
