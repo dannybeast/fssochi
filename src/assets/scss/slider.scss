@@ -1,5 +1,5 @@
 @import "../../../node_modules/slick-slider/slick/slick";
-@import './calendar.scss';
+@import "./calendar.scss";
 
 #slider {
   /* Оболочка слайдера */
@@ -33,9 +33,11 @@
   &:after {
     content: "";
     width: 100%;
-    background: linear-gradient(180deg,
-        rgba(0, 43, 131, 0) 0%,
-        rgba(0, 43, 131, 0.8463760504201681) 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 43, 131, 0) 0%,
+      rgba(0, 43, 131, 0.8463760504201681) 100%
+    );
     position: absolute;
     top: 0;
     left: 0;
@@ -160,7 +162,7 @@
   color: #ffffff;
   font-family: "PT Sans";
   font-size: 28px;
-  max-width: 400px;
+  max-width: 450px;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.39);
 }
 

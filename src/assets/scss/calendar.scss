@@ -31,6 +31,7 @@ $color_link_water_approx: #dddffb;
 
     option {
       color: #000;
+      font-family: 'PT sans';
     }
 
     &:focus {
@@ -142,6 +143,29 @@ $color_link_water_approx: #dddffb;
 
   .has-events {
     background: #6bd3ff !important;
+
+    &.dark {
+      background: #0063b9 !important;
+
+      .calendar-events {
+        background: #0063b9 !important;
+
+        .calendar-event {
+          &__date {
+            color: #fff;
+          }
+
+          &__title {
+            color: #fff;
+          }
+
+          &__btn {
+            border-color: #fff;
+            color: #fff;
+          }
+        }
+      }
+    }
   }
 
   .calendar-dates {
@@ -182,13 +206,12 @@ $color_link_water_approx: #dddffb;
         display: block;
         background: #6bd3ff;
         z-index: 150;
-        transition: all .5s ease;
+        transition: all .1s ease;
         min-width: 250px;
         text-align: left;
         transform: translateY(-10px);
         opacity: 0;
         visibility: hidden;
-
 
         &.open {
           transform: none;
@@ -229,6 +252,7 @@ $color_link_water_approx: #dddffb;
             vertical-align: top;
             text-decoration: none;
             cursor: pointer;
+            margin-top: 10px;
 
             &:hover {
               background: #fff;
@@ -275,14 +299,26 @@ $color_link_water_approx: #dddffb;
       }
 
       .today-date {
-        background: #0063b9;
+        background: #fff;
         border-radius: 10px;
+
+        .calendar-number {
+          color: #004280;
+        }
       }
 
       // .calendar-active {
       //   background: rgba(231, 237, 244, 0.2);
       // }
     }
+  }
+}
+
+
+.calendar-slider {
+  .slick-track {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 

@@ -8,12 +8,11 @@ import {
     Request
 } from './xhr';
 
-
 $(document).ready(function () {
     if ($('.calendar-section__calendar').length) {
 
-        //
-        Request('GET', `posters.json`).then(response => {
+        //http://fssochi.ru/events/all
+        Request('GET', `http://fssochi.ru/events/all`).then(response => {
             postersCalendar(JSON.parse(response));
         })
 
@@ -44,24 +43,11 @@ $(document).ready(function () {
             // Filters
             let month_select = document.querySelector('.js-month-select');
             let year_select = document.querySelector('.js-year-select');
-            let tag_radio_buttons = document.querySelectorAll('[name="poster-type"]');
-
-
-            // Filter tags
-            tag_radio_buttons.forEach(function (button) {
-                button.addEventListener('change', function () {
-                    Request('GET', `http://point.icbcode.ru/events/all?filter=${this.value}&object=${object_id}`).then(response => {
-                        resources = JSON.parse(response);
-                        renderCalendar();
-                        eventDots(resources);
-                    })
-                });
-            })
             //-
             // Filter months
             month_select.addEventListener('change', function () {
                 let year = year_select.value;
-                let date = moment('' + year + '-' + this.value + '-01').format('YYYY-MM-DD');
+                let date = moment('' + year + '-' + this.value + '-01', 'YYYY-MM-DD').format('YYYY-MM-DD');
                 calendar.dataset.reference = date;
                 createDates(date);
                 eventDots(resources);
@@ -70,7 +56,7 @@ $(document).ready(function () {
             // Filter years
             year_select.addEventListener('change', function () {
                 let month = month_select.value;
-                let date = moment('' + this.value + '-' + month + '-01').format('YYYY-MM-DD');
+                let date = moment('' + this.value + '-' + month + '-01', 'YYYY-MM-DD').format('YYYY-MM-DD');
                 calendar.dataset.reference = date;
                 createDates(date);
                 eventDots(resources);
@@ -105,9 +91,9 @@ $(document).ready(function () {
             // Returns a future/past month based on the trigger clicked
             function getNewDate(date, type) {
                 if (type === 'prev') {
-                    date = moment(date).subtract(1, 'month').format('MMMM-DD-YYYY');
+                    date = moment(date, 'YYYY-MM-DD').subtract(1, 'month').format('YYYY-MM-DD');
                 } else {
-                    date = moment(date).add(1, 'month').format('MMMM-DD-YYYY');
+                    date = moment(date, 'YYYY-MM-DD').add(1, 'month').format('YYYY-MM-DD');
                 }
 
                 // Update the reference date (for proper date mapping)
@@ -119,7 +105,6 @@ $(document).ready(function () {
 
             // Creates the dates for the calendar
             function createDates(date) {
-
                 const calendarDates = document.querySelector('.calendar-dates');
 
                 //Remove child nodes from dates parent
@@ -130,7 +115,7 @@ $(document).ready(function () {
                 // Create reference variables for date specific objects
                 const today = moment().format('MM-D-YYYY'),
                     year = moment(date).format('YYYY'),
-                    month = moment(date).format('MM'),
+                    month = moment(date, 'YYYY-MM-DD').format('MM'),
                     day = moment(date).format('DD'),
                     days = moment(date).daysInMonth(),
                     lastDays = moment(date).subtract(1, 'month').daysInMonth(),
@@ -143,6 +128,7 @@ $(document).ready(function () {
                 if (!month_select.options.length) {
                     defaultMonths.forEach(function (month, i) {
                         month_select.insertAdjacentHTML('beforeend', `<option value="${i + 1}">${month}</option>`);
+
                     });
                 }
 
@@ -161,7 +147,7 @@ $(document).ready(function () {
                 }
                 //-
 
-                month_select.value = moment(month).format('M');
+                month_select.value = moment(month, 'MM').format('M');
                 year_select.value = year;
                 //-
 
@@ -289,11 +275,6 @@ $(document).ready(function () {
             }
 
 
-            //Event Dots
-            // document.addEventListener('DOMContentLoaded', function () {
-            //   eventDots(resources);
-            // });
-
             eventDots(resources);
 
             calendarButtons.forEach(function (trigger) {
@@ -314,38 +295,24 @@ $(document).ready(function () {
                 });
 
                 function makeDot(date, title, introtext, url) {
-                    date = moment(date).format('MM-DD-YYYY');
+                    var date = moment(date, "YYYY-MM-DD").format('MM-D-YYYY');
                     var element = document.querySelector(`.calendar-date[data-date="${date}"]`);
 
                     if (element) {
                         element.classList.add('has-events');
                         element.childNodes[3].innerHTML += `
-                <span class="calendar-event">
-                    <span class="calendar-event__date">${moment(date).format('DD.MM.YYYY')}</span>
-                    <span class="calendar-event__title">${title}</span>
-                    <span class="calendar-event__text">${introtext}</span>
-                    <a href="${url}" class="calendar-event__btn">Подробнее</a>
-                </span>`;
-
-                        $('.calendar-event__title').each(function () {
-                            $(this).html(slicer($(this).text(), 25));
-                        });
-
-                        let events_count = element.childNodes[3].childNodes.length;
-                        //let more_btn = element.querySelector('.more-events');
-
-
-                        // Если больше 1 события на дату
-                        // if (events_count > 1) {
-                        //     more_btn.parentNode.removeChild(more_btn);
-                        // }
-
-                        // element.childNodes[3].childNodes[0].innerHTML += `<a data-modal-id="more-events" class="js-custom-modal more-events"><span>Все события</span> <strong>${events_count}</strong></a>`;
-
-                        // if (events_count > 1) {
-                        //     element.querySelector('.more-events').classList.add('show');
-                        // }
-
+                        <span class="calendar-event">
+                            <span class="calendar-event__date">${moment(date, "MM-D-YYYY").format('DD.MM.YYYY')}</span>
+                            <span class="calendar-event__title">${title}</span>
+                            <a href="${url}" class="calendar-event__btn">Подробнее</a>
+                        </span>`;
+                    }
+                    // темным цветом каждую вторую
+                    let eventsCells = document.querySelectorAll('.has-events');
+                    if (!!eventsCells) {
+                        for (var i = 1; i < eventsCells.length; i = i + 2) {
+                            if (eventsCells[i]) eventsCells[i].classList.add("dark")
+                        }
                     }
 
                 }
