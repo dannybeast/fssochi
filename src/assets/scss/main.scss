@@ -27,6 +27,7 @@ body {
   background-color: #C7EBFB;
   font-family: 'PT Sans', sans-serif;
   font-size: 13px;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -115,6 +116,7 @@ a:hover {
   height: 94px;
   margin-left: 10px;
   background-image: url('../images/logo.png');
+  background-repeat: no-repeat;
 }
 
 .absolute-left {
@@ -406,6 +408,7 @@ a:hover {
 
 .index-page {
   background: url(../images/bg.jpg) center 226px no-repeat #d1eaf9;
+  overflow-x: hidden;
 }
 
 .page .wrapper {
