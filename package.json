@@ -53,7 +53,7 @@
     "dayjs": "^1.8.18",
     "imask": "^6.0.0",
     "jquery": "^3.4.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "slick-slider": "^1.8.2",
     "vue": "^2.6.10",
     "webpack-dev-server": "^3.10.1"
